@@ -32,5 +32,19 @@ pipeline {
                 }
             }
         }
+        stage('Package Petclinic') {
+            steps {
+                script {
+                    // Package the application (e.g., create a JAR or WAR file)
+                    sh 'mvn package'
+                }
+            }
+            post {
+                success {
+                    // Archive the package artifact
+                    archiveArtifacts artifacts: 'spring-petclinic-*/target/*.jar', allowEmptyArchive: true
+                }
+            }
+        }
     }
 }

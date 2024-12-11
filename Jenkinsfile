@@ -5,7 +5,7 @@ pipeline {
     }
 
     stages {
-        stage('Build pet clinic') {
+        stage('Builds pet clinic') {
             steps {
                 sh "mvn clean install"
             }
